@@ -4,18 +4,13 @@ public class AIAuto1 : MonoBehaviour
 {
 
     public Transform[] waypoints;
+    
 
     private int currentWaypointIndex = 0;
 
     public float speed = 10f;
 
-    public float turnSpeed = 5f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float rotationSpeed = 5f;
 
     // Update is called once per frame
     void Update()
@@ -30,6 +25,13 @@ public class AIAuto1 : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(direction);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+
+        transform.Translate(direction * speed * Time.deltaTime);
+
+        if (math.abs(transform.position == target.position))
+        {
+            currentWaypointIndex += 1;
+        }
 
     }
 }
