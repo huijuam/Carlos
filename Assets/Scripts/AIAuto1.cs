@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class AIAuto1 : MonoBehaviour
@@ -28,9 +29,9 @@ public class AIAuto1 : MonoBehaviour
 
         transform.Translate(direction * speed * Time.deltaTime);
 
-        if (math.abs(transform.position == target.position))
+        if (Vector3.Distance(transform.position, target.position) < 2f)
         {
-            currentWaypointIndex += 1;
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
 
     }
