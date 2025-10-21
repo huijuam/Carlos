@@ -27,7 +27,7 @@ public class AIAuto1 : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
 
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, target.position) < 2f)
         {
