@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CarType { Player, AI }
+public enum CarType { Player, Ai }
 public class CarIdentity : MonoBehaviour
 {
 
