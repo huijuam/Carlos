@@ -5,6 +5,12 @@ public class Maaliviiva : MonoBehaviour
     private void OnTriggerEnter(Collider auto)
     {
         var id = auto.GetComponent<CarIdentity>();
-        Debug.Log("Mitä sanoit" + id.car_name);
+        var tarkastaja = auto.GetComponent<CheckpointTarkistus>();
+        if (tarkastaja.CanWin())
+        {
+            Debug.Log("Mitä sanoit" + id.car_name);
+            tarkastaja.ResetLap();
+        }
+        
     }
 }
