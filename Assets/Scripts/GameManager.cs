@@ -6,7 +6,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public TextMeshProUGUI lapText;
+
     [SerializeField] private CheckpointTarkistus playerCT;
+
+    public int LapsToWin = 5;
+
+    public bool gameRunning = true;
 
     void Awake()
     {
@@ -18,6 +23,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lapText.text = "Lap " + playerCT.laps + "/5";
+        lapText.text = "Lap " + playerCT.laps + "/" + LapsToWin.ToString();
     }
 }

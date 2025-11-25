@@ -16,7 +16,8 @@ public class AIAuto1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(GameManager.Instance.gameRunning)
+        {
         Transform target = waypoints[currentWaypointIndex];
 
         Vector3 targetXZ = new Vector3(target.position.x, transform.position.y, target.position.z);
@@ -32,6 +33,7 @@ public class AIAuto1 : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 2f)
         {
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+        }
         }
 
     }
